@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  history_site:
+    build: .
+    container_name: history_site
+    restart: always
+    networks:
+      - prod_network
+
+  nginx_proxy:
+    image: nginx:latest
+    container_name: nginx_proxy
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - /root/project:/usr/share/nginx/html:ro
+    depends_on:
+      - history_site
+    networks:
+      - prod_network
+
+networks:
+  prod_network:
+    driver: bridge
