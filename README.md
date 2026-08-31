@@ -44,5 +44,5 @@ template/ — директория для хранения Jinja2-шаблоно
 Автоматизация инфраструктуры (IaaC): Ansible  
 
 
-Мониторинг: Prometheus, Grafana  
+Мониторинг: Prometheus, Grafana, Node Exporter, BlackBox Exporter, cAdvisor
 
